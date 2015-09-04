@@ -23,17 +23,28 @@ def pick_val(
   #   index == -2 returns seq[2]. Again, if the list is less than index in
   #   length, return an earlier value.
   index=4):
-    # Check the length of the sequence with the asked index value
-    seqlength = len(seq)
-    myindex = index
-    # Generates a good index value if the passed value is too large.
-    if abs(myindex) > seqlength:
-        myindex = 0 - seqlength
-    # Uses the passed index value
+    # #test the index if it greater than the size of list 
+    if  index<=len(seq):
+        pass
+   
+    #test6 if the index greater than the size of the list 
+    elif index>len(seq):
+        return seq[0]
+
+    #test the function when index is defult velue 
+    if index==4:
+        #test1 when the list len greater than 4
+        if len(seq)>=4:
+            return seq[-index]
+        #test2 when the lens of the list is greater than 0 less than 4
+        elif len(seq)>0 and len(seq)<4:
+            return seq[0]
+        #test4 when the list is empty
+        
     else:
-        myindex = 0 - index
-    value = seq[myindex]
-    return value
+        return seq[-index]
+    
+    pass
 
 # Tests
 # =====
