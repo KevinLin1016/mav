@@ -42,6 +42,7 @@ def pick_val(
         #test4 when the list is empty
         
     else:
+#return the element form the list
         return seq[-index]
     
     pass
