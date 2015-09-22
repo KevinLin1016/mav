@@ -42,7 +42,7 @@ _MAV_STATES = Enum( ('Flying', 'Waiting', 'Charging') )
 # MAV class
 # ---------
 class MAV(Thread):
-    
+
     def __init__(self,
       # The left electrode for this MAV.
       left_electrode,
@@ -65,14 +65,14 @@ class MAV(Thread):
         self.running=True
         super(MAV, self).__init__(**kwargs)
         # Your code here.
-        
-    
+
+
     def run(self):
         # Your code here.
         #
       #while loop for monitoring the mav if it is running
         while( self.running):
-            
+
             # Fly while ``self.running`` is True. Update your state:
             self._state = _MAV_STATES.Flying
             #when the state is flying, it should  sleep for fly_time_sec_
@@ -84,8 +84,8 @@ class MAV(Thread):
                     #go to  charging state
                     self._state = _MAV_STATES.Charging
                     sleep(self._ct)
-                
-                    
+
+
             # When done flying:
         self._state = None
 
@@ -239,12 +239,19 @@ class TestMav(object):
 
     def test_2(self):
         self.fly_missions(0.10, 0.20, 2)
-"""
+#
+def Electrode():
+    return Lock()
+
+
+
+
 #
 # TestElectrode class
 # -------------------
 class TestElectrode(object):
     # Releasing an electrode not in use should raise an exception.
+
     def test_1(self):
         e = Electrode()
         # Releasing an electrode that's unlocked should raise a ThreadError, just as `releasing a Lock <https://docs.python.org/2/library/threading.html#threading.Lock.release>`_ does. See `pytest.raises <https://pytest.org/latest/assert.html#assertions-about-expected-exceptions>`_.
@@ -267,7 +274,7 @@ class TestElectrode(object):
         with e:
             assert not e.acquire(False)
         assert e.acquire()
-"""
+
 #
 # main code
 # =========
