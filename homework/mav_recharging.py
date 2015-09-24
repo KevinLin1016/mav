@@ -240,6 +240,8 @@ class TestMav(object):
     def test_2(self):
         self.fly_missions(0.10, 0.20, 2)
 #
+
+#create the Electrode function which is a lock of a thread
 def Electrode():
     return Lock()
 
